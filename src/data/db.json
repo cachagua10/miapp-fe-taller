@@ -1,0 +1,16 @@
+{
+    "generics":[
+    {"id":1, "cod_sybis": "abc123", "name": "Jeringa", "presentation":["p1", "p2"], "disposable": true},
+    {"id":2, "cod_sybis": "gra123", "name": "paracetamol", "presentation":["p2", "p3"], "disposable": false},
+    {"id":3, "cod_sybis": "ndfg754", "name": "cocobanga", "presentation":["p7"], "disposable": false},
+    {"id":4, "cod_sybis": "poj561", "name": "cariquistral", "presentation":["p1", "p4"], "disposable": false},
+    {"id":5, "cod_sybis": "anh24568", "name": "gasaVer", "presentation":["p3", "p5"], "disposable": true}
+    ],
+
+    "users":[
+        {"id":1, "name":"Damian", "last-name": "Cachagua", "dni":34299650, "phone":155146182, "age":33, "os":"Iosper"},
+        {"id":2, "name":"Federico", "last-name": "Gomez", "dni":22456123, "phone":155134578, "age":2, "os":"Iosfa"},
+        {"id":3, "name":"Gonzalo", "last-name": "Vergamazco", "dni":12456741, "phone":155251496, "age":21, "os":"otro"},
+        {"id":4, "name":"Kaku", "last-name": "Cocobangamela", "dni":45159753, "phone":154251369, "age":45, "os":"otro 2"}
+    ]
+}
