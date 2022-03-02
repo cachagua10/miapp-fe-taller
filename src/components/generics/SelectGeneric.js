@@ -22,7 +22,7 @@ export const SelectGeneric = ({isSelected,  presentation }) => {
             id="generic-presentation"
             onChange={ handleSelectChange }
             value= { pres }
-            label="Presentaciones"
+            label="Presentacion"
             disabled = { isSelected }
           >
             {
