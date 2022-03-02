@@ -8,9 +8,9 @@
     ],
 
     "users":[
-        {"id":1, "name":"Damian", "last-name": "Cachagua", "dni":34299650, "phone":155146182, "age":33, "os":"Iosper"},
-        {"id":2, "name":"Federico", "last-name": "Gomez", "dni":22456123, "phone":155134578, "age":2, "os":"Iosfa"},
-        {"id":3, "name":"Gonzalo", "last-name": "Vergamazco", "dni":12456741, "phone":155251496, "age":21, "os":"otro"},
-        {"id":4, "name":"Kaku", "last-name": "Cocobangamela", "dni":45159753, "phone":154251369, "age":45, "os":"otro 2"}
+        {"id":1, "name":"Damian", "last-name": "Cachagua", "dni":34299650, "age":33, "os":"Iosper"},
+        {"id":2, "name":"Federico", "last-name": "Gomez", "dni":22456123, "age":2, "os":"Iosfa"},
+        {"id":3, "name":"Gonzalo", "last-name": "Vergamazco", "dni":12456741, "age":21, "os":"otro"},
+        {"id":4, "name":"Kaku", "last-name": "Cocobangamela", "dni":45159753, "age":45, "os":"otro 2"}
     ]
 }
