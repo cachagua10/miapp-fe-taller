@@ -1,24 +1,34 @@
 import * as React from 'react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import  { genericos } from '../data/generics/generics';
 import Box from '@mui/material/Box';
 import { SelectGeneric } from './generics/SelectGeneric';
 import Grid from '@mui/material/Grid';
-import { GenericList } from './generics/GenericList';
+import axios from 'axios';
 
 export default function RequestItem( ) {
   
+    const [generics, setGenerics] = useState([]);
     const [selected, setSelected] = useState(true);
     const [presentation, setPresentation] = useState([]);
-  
+
+    const getGenerics = () => {
+      axios.get("http://taller-fsoler.test/api/generics")
+          .then((response) => { setGenerics(response.data.data) })
+          .catch((error) => { alert(error.message) });
+    } 
+
+    useEffect(() => {
+        getGenerics()   
+    }, []); 
+    
     const handleGenericChange = ( event, value )=>{
         event.preventDefault();
         setSelected(false);
-        const presentations = genericos.filter(option => option.name === value)
-        .map((option) => option.presentation);
-        setPresentation( presentations ); 
+        const presentations = generics.filter(option => option.name === value)
+        .map((option) => option.presentation); 
+        setPresentation( presentations );
     }
     
 
@@ -31,30 +41,29 @@ export default function RequestItem( ) {
           container spacing={2}
           justifyContent="space-between"
         >
-          <Grid item xs={6}>
+            <Grid item xs={6}>
 
-            <Autocomplete
-              freeSolo
-              id="generic"
-              disableClearable
-              onChange={(event, value) => handleGenericChange( event, value ) }
-              options={
-                  genericos.filter(option => !option.disposable)
-                  .map((option) => option.name)
-                  }
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Ingresar generico"
-                  InputProps={{
-                    ...params.InputProps,
-                    type: 'search',
-                  }}
-                />
-              )}
-            />
-            
-          </Grid>
+              <Autocomplete
+                freeSolo
+                id="generic"
+                disableClearable
+                onChange={(event, value) => handleGenericChange( event, value ) }
+                options={
+                    generics.filter(option => !option.is_disposable)
+                    .map((option) => option.name)
+                    }
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Ingresar generico"
+                    InputProps={{
+                      ...params.InputProps,
+                      type: 'search',
+                    }}
+                  />
+                )}
+              />
+            </Grid> 
           <Grid item xs>
             <SelectGeneric
             presentation = { presentation }
@@ -69,12 +78,9 @@ export default function RequestItem( ) {
               defaultValue=''
               disabled = { selected }
             />
-          </Grid>
+          </Grid> 
         </Grid>
       </Box>
-      <GenericList > Genericos</GenericList>
-    
-    
   </>
   );
 }

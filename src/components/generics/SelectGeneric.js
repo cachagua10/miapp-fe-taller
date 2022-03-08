@@ -12,6 +12,8 @@ export const SelectGeneric = ({isSelected,  presentation }) => {
     const handleSelectChange =( event)=>{
         setPres( event.target.value );
      }
+     console.log(presentation);
+     
   return (
       
     <Box sx={{ width: 300 }}>
@@ -27,9 +29,9 @@ export const SelectGeneric = ({isSelected,  presentation }) => {
           >
             {
               !isSelected &&
-              (presentation[0].map(pres =>
+              (presentation.map((pres, index) =>
                 <MenuItem
-                  key={ pres }
+                  key={ index }
                   value={pres}
                 >{ pres }</MenuItem>))
             }
